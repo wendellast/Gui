@@ -1,0 +1,7 @@
+[tool.isort]
+profile = "black"
+line_length = 79
+
+[tool.taskipy.tasks]
+apple = "black --check --diff . && isort --check --diff ."
+orange = "black . && isort ."
