@@ -32,7 +32,6 @@ class MyApp(App):
         conn = sqlite3.connect("memory.db")
         cursor = conn.cursor()
 
-
         cursor.execute(
             "CREATE TABLE IF NOT EXISTS mind (user_ask TEXT, gui_response TEXT, id INTEGER PRIMARY KEY AUTOINCREMENT)"
         )

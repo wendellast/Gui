@@ -1,10 +1,11 @@
-from datetime import datetime
 import json
+from datetime import datetime
 
 now = datetime.now()
 
-with open('data/config.json', 'r', encoding='UTF-8') as file:
+with open("data/config.json", "r", encoding="UTF-8") as file:
     config = json.load(file)
+
 
 def prompt4conversation(prompt, context):
     final_prompt = f"""

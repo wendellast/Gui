@@ -1,6 +1,6 @@
 import os
-
 import sqlite3
+
 import dotenv
 from hugchat import hugchat
 from hugchat.login import Login
@@ -30,9 +30,8 @@ top_k = 1
 max_new_tokens = min_value = 1
 
 
-#MEMORY
+# MEMORY
 if os.path.exists("memory.db"):
-
     conn = sqlite3.connect("memory.db")
     cursor = conn.cursor()
 
@@ -46,10 +45,7 @@ if os.path.exists("memory.db"):
         user_ask.append(pergunta[0])
         gui_response.append(pergunta[1])
 
-
     cursor.close()
-
-
 
 
 def generate_response(prompt):
@@ -59,10 +55,7 @@ def generate_response(prompt):
     context = {}
 
     if os.path.exists("memory.db"):
-        context = {
-            'User:': user_ask,
-            "Gui:": gui_response
-        }
+        context = {"User:": user_ask, "Gui:": gui_response}
 
     print(context)
 
