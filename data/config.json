@@ -1,13 +1,21 @@
 {
-    "config":{
-        "name": "Gui",
-        "version": 0.1,
-        "laguage": "pt-BR",
-        "develop": {
-            "name": "wendellast",
-            "profile": "https://github.com/wendellast"
+    "config": {
+      "name": "Gui",
+      "version": 1.1,
+      "language": "pt-BR",
+      "developers": {
+        "wendellast": {
+          "name": "wendellast",
+          "function": "desenvolvedor geral",
+          "profile": "https://github.com/wendellast"
         },
-        "data_created": "31/12/2023",
-        "status": "active"
-    }
-}
+        "Andra-sun": {
+          "name": "Andra-sun",
+          "function": "desenvolvedor designer",
+          "profile": "https://github.com/Andra-sun"
+        }
+      }
+    },
+    "data_created": "31/12/2023",
+    "status": "active"
+  }

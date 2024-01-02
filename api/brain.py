@@ -18,5 +18,5 @@ def prompt4conversation(prompt, context):
     WRITE ALWAYS ONLY YOUR ACCURATE ANSWER, YOUR ANSWERS MUST BE WRITTEN.
     PREVIUS MESSAGE : ({context})
     NOW THE USER ASK : {prompt} .
-    WRITE THE ANSWER on PORTUGUESE-BR:"""
+    WRITE THE ANSWER in PORTUGUESE-BR:"""
     return final_prompt
