@@ -1,2 +1,5 @@
 venv/
+.env
 .pytest_cache
+cookies_snapshot
+__pycache__

@@ -1,0 +1,36 @@
+Screen{
+    align: center middle;
+    text-align: center;
+
+}
+
+Button{
+    margin: 1;
+    color: red;
+    align: center middle;
+    background: aqua;
+    align-horizontal: center;
+    width: 50%;
+}
+
+Container{
+    align: center middle;
+    text-align: center;
+
+}
+
+Input{
+    width: 50%;
+}
+
+Label{
+    padding: 3;
+    height: 35%;
+    width: 100%;
+    text-align: justify;
+    overflow: auto auto;
+    outline: red round;
+    border: green heavy;
+}
+
+
