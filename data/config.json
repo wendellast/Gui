@@ -1,0 +1,13 @@
+{
+    "config":{
+        "name": "Gui",
+        "version": 0.1,
+        "laguage": "pt-BR",
+        "develop": {
+            "name": "wendellast",
+            "profile": "https://github.com/wendellast"
+        },
+        "data_created": "31/12/2023",
+        "status": "active"
+    }
+}

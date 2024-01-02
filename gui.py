@@ -1,3 +1,5 @@
+import sqlite3
+
 from textual import on
 from textual.app import App
 from textual.containers import Container, Horizontal, VerticalScroll
@@ -18,7 +20,7 @@ class MyApp(App):
             with VerticalScroll():
                 self.label = Label()
                 yield self.label
-                self.input = Input("Digite aqui")
+                self.input = Input()
 
                 with Horizontal():
                     yield self.input
@@ -27,6 +29,24 @@ class MyApp(App):
     @on(Button.Pressed, "#button1")
     def resposta(self):
         gui_resp = response_gui(self.input.value)
+        conn = sqlite3.connect("memory.db")
+        cursor = conn.cursor()
+
+
+        cursor.execute(
+            "CREATE TABLE IF NOT EXISTS mind (user_ask TEXT, gui_response TEXT, id INTEGER PRIMARY KEY AUTOINCREMENT)"
+        )
+
+        # Insere vários registros na tabela
+        cursor.executemany(
+            "INSERT INTO mind (user_ask, gui_response) VALUES (?, ?)",
+            [(f"{self.input.value}", f"{gui_resp}")],
+        )
+
+        conn.commit()
+        # Fecha a conexão com o banco de dados
+        conn.close()
+
         self.label.update(
             f"""
             [yellow b] User: [/] [yellow] {self.input.value} [/] \n
