@@ -55,13 +55,17 @@ class MyApp(App):
             logging_error(error)
 
         try:
+            msg_temp = []
+            msg_temp.append(self.input.value)
+
             self.label.update(
                 f"""
-                [yellow b] User: [/] [yellow] {self.input.value} [/] \n
+                [yellow b] User: [/] [yellow] {msg_temp[0]} [/] \n
                 [green b] GUI: [/] [green] {gui_resp} [/]
                 """
             )
-            self.input.value = ""
+            self.input.value = ' '
+            msg_temp.clear()
         except Exception as error:
             logging_error(error)
             self.exit()
