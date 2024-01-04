@@ -8,7 +8,7 @@ GUI é uma assistente pessoal escrita em Python3 que pode ajudar em tarefas do d
 
 ### Para instalar a GUI, siga estas etapas:
 
-    1º Crie uma conta no site da HuggingFace:   https://huggingface.co/
+    1º Crie uma conta no site da HuggingFace: https://huggingface.co/
 
     2º Crie uma conta >>> Gere seu email e senha no site
 
