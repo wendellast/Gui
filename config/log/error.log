@@ -1,0 +1,12 @@
+ERROR:root:Erro na sua_funcao: cannot access local variable 'gui_resp' where it is not associated with a value 
+Traceback (most recent call last):
+  File "/home/wendellast/Documents/GitHub/Gui/gui.py", line 48, in resposta
+    [(f"{self.input.value}", f"{gui_resp}")],
+                                ^^^^^^^^
+UnboundLocalError: cannot access local variable 'gui_resp' where it is not associated with a value
+ERROR:root:Erro na sua_funcao: cannot access local variable 'gui_resp' where it is not associated with a value 
+Traceback (most recent call last):
+  File "/home/wendellast/Documents/GitHub/Gui/gui.py", line 64, in resposta
+    [green b] GUI: [/] [green] {gui_resp} [/]
+                                ^^^^^^^^
+UnboundLocalError: cannot access local variable 'gui_resp' where it is not associated with a value
