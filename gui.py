@@ -21,7 +21,7 @@ class MyApp(App):
             with VerticalScroll():
                 self.label = Label()
                 yield self.label
-                self.input = Input()
+                self.input = Input(valid_empty=False, placeholder="Digite Aqui!")
 
                 with Horizontal():
                     yield self.input
@@ -61,6 +61,7 @@ class MyApp(App):
                 [green b] GUI: [/] [green] {gui_resp} [/]
                 """
             )
+            self.input.value = ""
         except Exception as error:
             logging_error(error)
             self.exit()
