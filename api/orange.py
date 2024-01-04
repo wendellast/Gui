@@ -6,6 +6,7 @@ from hugchat import hugchat
 from hugchat.login import Login
 
 from api.brain import prompt4conversation
+from config.fuctions import logging_error
 
 dotenv.load_dotenv(dotenv.find_dotenv())
 
@@ -15,8 +16,8 @@ password = os.getenv("password")
 
 # Log in to huggingface and grant authorization to huggingchat
 sign = Login(email, password)
-cookies = sign.login()
 
+cookies = sign.login()
 # Save cookies to the local directory
 cookie_path_dir = "./cookies_snapshot"
 sign.saveCookiesToDir(cookie_path_dir)
@@ -32,20 +33,23 @@ max_new_tokens = min_value = 1
 
 # MEMORY
 if os.path.exists("memory.db"):
-    conn = sqlite3.connect("memory.db")
-    cursor = conn.cursor()
+    try:
+        conn = sqlite3.connect("memory.db")
+        cursor = conn.cursor()
 
-    cursor.execute("SELECT user_ask, gui_response FROM mind")
-    dados = cursor.fetchmany(300)
+        cursor.execute("SELECT user_ask, gui_response FROM mind")
+        dados = cursor.fetchmany(300)
 
-    user_ask = []
-    gui_response = []
+        user_ask = []
+        gui_response = []
 
-    for pergunta in dados:
-        user_ask.append(pergunta[0])
-        gui_response.append(pergunta[1])
+        for pergunta in dados:
+            user_ask.append(pergunta[0])
+            gui_response.append(pergunta[1])
 
-    cursor.close()
+        cursor.close()
+    except Exception as error:
+        logging_error(error)
 
 
 def generate_response(prompt):
@@ -56,8 +60,6 @@ def generate_response(prompt):
 
     if os.path.exists("memory.db"):
         context = {"User:": user_ask, "Gui:": gui_response}
-
-    print(context)
 
     final_prompt = prompt4conversation(prompt, context)
 
