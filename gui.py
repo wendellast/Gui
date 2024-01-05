@@ -16,7 +16,7 @@ class MyApp(App):
 
     BINDINGS = [
         ('enter', 'response()', 'Pronto'),
-        ('ctrl+q', 'exit_app()', 'kill')
+        ('ctrl+c', 'exit_app()', 'kill')
     ]
 
     def compose(self) -> ComposeResult:
@@ -68,21 +68,15 @@ class MyApp(App):
             msg_temp = []
             msg_temp.append(self.input.value)
 
-            msg_gui = f"""
-            [#f022e6 b] Gui: [/] [#f022e6] {gui_resp} [/]
-            """
-            
-            msg_user = f"""
-            [#ffd700 b] [right middle] User: [/] [#ffd700] [right middle] {msg_temp[0]} [/]
-            """
-            
-            self.label.update(
-                f"""{msg_user}
-                {msg_gui}"""
-            )
-            
+            msg_gui = f"""[#f022e6 b] Gui: [/] [#f022e6] {gui_resp} [/]"""
+
+            msg_user = f"""[#ffd700 b] User: [/] [#ffd700] {msg_temp[0]} [/]"""
+
+            self.label.update(f"""{msg_user.strip()}\n{msg_gui.strip()}""")
+
             self.input.value = ' '
             msg_temp.clear()
+
         except Exception as error:
             logging_error(error)
             self.exit()

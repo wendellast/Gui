@@ -21,8 +21,8 @@ class HuggingChat(LLM):
         int
     ] = 0  # 0 = OpenAssistant/oasst-sft-6-llama-30b-xor , 1 = meta-llama/Llama-2-70b-chat-hf
 
-    temperature: Optional[float] = 0.7
-    top_p: Optional[float] = 0.8
+    temperature: Optional[float] = 0.9
+    top_p: Optional[float] = 0.5
     repetition_penalty: Optional[float] = 1.2
     top_k: Optional[int] = 20
     truncate: Optional[int] = 512

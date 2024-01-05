@@ -4,71 +4,33 @@ Screen {
     align: center middle;
     text-align: center;
     width: 100%;
-    padding: 0;
-    background:#121212;
 }
+
 
 Button {
     color: white;
-    background:#3498DB;
-    border: #39CCCC;
+    background: #3498db;
     width: 36%;
-    height: 15%;
+    height: 10%;
 }
 
 Container {
     align: center middle;
     text-align: center;
-    margin: 0;
+    margin: 2;
 }
 
 Input {
     width: 60%;
-    height: 17%;
-    background:#001F3F;
-    outline: round;
-    margin-right: 1;
 }
 
 Label {
-    margin-top: 1;
     padding: 2;
-    height: 40%;
+    height: 35%;
     width: 100%;
-    background:#1e1e1e;
-    outline: #FF0000 round;
-}
-Horizontal{
-    margin-top: 1;
-    padding: 1;
-    align: center top;
-}
-Footer{
-    margin:0;
+    outline: #e74c3c round;
 }
 
-msg_user{
-    align: right middle;
-    text-align: right;
-    margin: 0;
-}
-cores{
-    background:#001F3F;
-    background:#39CCCC;
-    background:#F0F0F0;
-    background:#FFFFFF;
-    background:#3498DB;
-    background:#e74c3c;
-    background:#808080;
-    background:#22f03a;
-    background:#ffd700;
-    background:#1E1E1E;
-    background:#FFFFFF;
-    background:#3498DB;
-    background:#FFFFFF;
-    background:#333333;
-    background:#CCCCCC;
-    background:#808080;
 
-}
+
 
