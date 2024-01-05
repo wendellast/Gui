@@ -6,7 +6,6 @@ Screen {
     width: 100%;
 }
 
-
 Button {
     color: white;
     background: #3498db;
