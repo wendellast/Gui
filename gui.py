@@ -68,12 +68,19 @@ class MyApp(App):
             msg_temp = []
             msg_temp.append(self.input.value)
 
+            msg_gui = f"""
+            [#f022e6 b] Gui: [/] [#f022e6] {gui_resp} [/]
+            """
+            
+            msg_user = f"""
+            [#ffd700 b] [right middle] User: [/] [#ffd700] [right middle] {msg_temp[0]} [/]
+            """
+            
             self.label.update(
-                f"""
-                [yellow b] User: [/] [yellow] {msg_temp[0]} [/] \n
-                [green b] GUI: [/] [green] {gui_resp} [/]
-                """
+                f"""{msg_user}
+                {msg_gui}"""
             )
+            
             self.input.value = ' '
             msg_temp.clear()
         except Exception as error:
