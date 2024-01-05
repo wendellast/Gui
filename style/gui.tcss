@@ -1,12 +1,14 @@
 Screen {
+    width: 100vh;
+    layout: grid;
     align: center middle;
     text-align: center;
     width: 100%;
 }
 
+
 Button {
     color: white;
-    align: center middle;
     background: #3498db;
     width: 36%;
     height: 10%;
@@ -28,5 +30,7 @@ Label {
     width: 100%;
     outline: #e74c3c round;
 }
+
+
 
 

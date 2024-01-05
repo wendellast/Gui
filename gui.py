@@ -1,7 +1,7 @@
 import sqlite3
 
 from textual import on
-from textual.app import App
+from textual.app import App, ComposeResult
 from textual.containers import Container, Horizontal, VerticalScroll
 from textual.widgets import Button, Footer, Header, Input, Label
 
@@ -14,10 +14,11 @@ class MyApp(App):
 
     CSS_PATH = "style/gui.tcss"
 
-    def compose(self):
+    def compose(self) -> ComposeResult:
+        yield Header(show_clock=True)
+        yield Footer()
+
         with Container():
-            yield Header(show_clock=True)
-            yield Footer()
             with VerticalScroll():
                 self.label = Label()
                 yield self.label
