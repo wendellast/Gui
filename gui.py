@@ -68,9 +68,10 @@ class MyApp(App):
             msg_temp = []
             msg_temp.append(self.input.value)
 
-            msg_gui = f"""[#f022e6 b] Gui: [/] [#f022e6] {gui_resp} [/]"""
+            msg_user = f"""[yellow b] User: [/] [yellow] {msg_temp[0]} [/]"""
 
-            msg_user = f"""[#ffd700 b] User: [/] [#ffd700] {msg_temp[0]} [/]"""
+            msg_gui = f"""[purple b] Gui: [/] [purple] {gui_resp} [/]"""
+
 
             self.label.update(f"""{msg_user.strip()}\n{msg_gui.strip()}""")
 
