@@ -14,6 +14,11 @@ class MyApp(App):
 
     CSS_PATH = "style/gui.tcss"
 
+    BINDINGS = [
+        ('enter', 'response()', 'Pronto'),
+        ('ctrl+q', 'exit_app()', 'kill')
+    ]
+
     def compose(self) -> ComposeResult:
         yield Header(show_clock=True)
         yield Footer()
@@ -22,14 +27,19 @@ class MyApp(App):
             with VerticalScroll():
                 self.label = Label()
                 yield self.label
-                self.input = Input(valid_empty=False, placeholder="Digite Aqui!")
+                self.input = Input(valid_empty=True, placeholder="Digite Aqui!")
 
                 with Horizontal():
                     yield self.input
                     yield Button("Enter", id="button1")
 
+
+
+    def action_exit_app(self):
+        self.exit()
+
     @on(Button.Pressed, "#button1")
-    def resposta(self):
+    def action_response(self):
         try:
             gui_resp = response_gui(self.input.value)
         except:
@@ -43,14 +53,13 @@ class MyApp(App):
                 "CREATE TABLE IF NOT EXISTS mind (user_ask TEXT, gui_response TEXT, id INTEGER PRIMARY KEY AUTOINCREMENT)"
             )
 
-            # Insere vários registros na tabela
             cursor.executemany(
                 "INSERT INTO mind (user_ask, gui_response) VALUES (?, ?)",
                 [(f"{self.input.value}", f"{gui_resp}")],
             )
 
             conn.commit()
-            # Fecha a conexão com o banco de dados
+
             conn.close()
         except Exception as error:
             logging_error(error)
