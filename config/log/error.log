@@ -10,3 +10,133 @@ Traceback (most recent call last):
     [green b] GUI: [/] [green] {gui_resp} [/]
                                 ^^^^^^^^
 UnboundLocalError: cannot access local variable 'gui_resp' where it is not associated with a value
+ERROR:root:Erro na sua_funcao: closing tag '[/]' at position 37 has nothing to close 
+Traceback (most recent call last):
+  File "/home/andra/guiIA/AGui/gui.py", line 71, in action_response
+    self.label.update(
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/textual/widgets/_static.py", line 97, in update
+    self.renderable = renderable
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/textual/widgets/_static.py", line 76, in renderable
+    self._renderable = Text.from_markup(renderable)
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/rich/text.py", line 286, in from_markup
+    rendered_text = render(text, style, emoji=emoji, emoji_variant=emoji_variant)
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/rich/markup.py", line 174, in render
+    raise MarkupError(
+rich.errors.MarkupError: closing tag '[/]' at position 37 has nothing to close
+ERROR:root:Erro na sua_funcao: closing tag '[/]' at position 37 has nothing to close 
+Traceback (most recent call last):
+  File "/home/andra/guiIA/AGui/gui.py", line 71, in action_response
+    self.label.update(
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/textual/widgets/_static.py", line 97, in update
+    self.renderable = renderable
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/textual/widgets/_static.py", line 76, in renderable
+    self._renderable = Text.from_markup(renderable)
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/rich/text.py", line 286, in from_markup
+    rendered_text = render(text, style, emoji=emoji, emoji_variant=emoji_variant)
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/rich/markup.py", line 174, in render
+    raise MarkupError(
+rich.errors.MarkupError: closing tag '[/]' at position 37 has nothing to close
+ERROR:root:Erro na sua_funcao: closing tag '[/]' at position 37 has nothing to close 
+Traceback (most recent call last):
+  File "/home/andra/guiIA/AGui/gui.py", line 71, in action_response
+    self.label.update(
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/textual/widgets/_static.py", line 97, in update
+    self.renderable = renderable
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/textual/widgets/_static.py", line 76, in renderable
+    self._renderable = Text.from_markup(renderable)
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/rich/text.py", line 286, in from_markup
+    rendered_text = render(text, style, emoji=emoji, emoji_variant=emoji_variant)
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/rich/markup.py", line 174, in render
+    raise MarkupError(
+rich.errors.MarkupError: closing tag '[/]' at position 37 has nothing to close
+ERROR:root:Erro na sua_funcao: closing tag '[/]' at position 36 has nothing to close 
+Traceback (most recent call last):
+  File "/home/andra/guiIA/AGui/gui.py", line 71, in action_response
+    self.label.update(
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/textual/widgets/_static.py", line 97, in update
+    self.renderable = renderable
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/textual/widgets/_static.py", line 76, in renderable
+    self._renderable = Text.from_markup(renderable)
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/rich/text.py", line 286, in from_markup
+    rendered_text = render(text, style, emoji=emoji, emoji_variant=emoji_variant)
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/rich/markup.py", line 174, in render
+    raise MarkupError(
+rich.errors.MarkupError: closing tag '[/]' at position 36 has nothing to close
+ERROR:root:Erro na sua_funcao: closing tag '[/]' at position 36 has nothing to close 
+Traceback (most recent call last):
+  File "/home/andra/guiIA/AGui/gui.py", line 72, in action_response
+    self.label.update(
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/textual/widgets/_static.py", line 97, in update
+    self.renderable = renderable
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/textual/widgets/_static.py", line 76, in renderable
+    self._renderable = Text.from_markup(renderable)
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/rich/text.py", line 286, in from_markup
+    rendered_text = render(text, style, emoji=emoji, emoji_variant=emoji_variant)
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/rich/markup.py", line 174, in render
+    raise MarkupError(
+rich.errors.MarkupError: closing tag '[/]' at position 36 has nothing to close
+ERROR:root:Erro na sua_funcao: closing tag '[/]' at position 78 has nothing to close 
+Traceback (most recent call last):
+  File "/home/andra/guiIA/AGui/gui.py", line 71, in action_response
+    self.label.update(
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/textual/widgets/_static.py", line 97, in update
+    self.renderable = renderable
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/textual/widgets/_static.py", line 76, in renderable
+    self._renderable = Text.from_markup(renderable)
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/rich/text.py", line 286, in from_markup
+    rendered_text = render(text, style, emoji=emoji, emoji_variant=emoji_variant)
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/rich/markup.py", line 174, in render
+    raise MarkupError(
+rich.errors.MarkupError: closing tag '[/]' at position 78 has nothing to close
+ERROR:root:Erro na sua_funcao: closing tag '[/]' at position 78 has nothing to close 
+Traceback (most recent call last):
+  File "/home/andra/guiIA/AGui/gui.py", line 71, in action_response
+    self.label.update(
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/textual/widgets/_static.py", line 97, in update
+    self.renderable = renderable
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/textual/widgets/_static.py", line 76, in renderable
+    self._renderable = Text.from_markup(renderable)
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/rich/text.py", line 286, in from_markup
+    rendered_text = render(text, style, emoji=emoji, emoji_variant=emoji_variant)
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/rich/markup.py", line 174, in render
+    raise MarkupError(
+rich.errors.MarkupError: closing tag '[/]' at position 78 has nothing to close
+ERROR:root:Erro na sua_funcao: closing tag '[/]' at position 78 has nothing to close 
+Traceback (most recent call last):
+  File "/home/andra/guiIA/AGui/gui.py", line 71, in action_response
+    self.label.update(
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/textual/widgets/_static.py", line 97, in update
+    self.renderable = renderable
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/textual/widgets/_static.py", line 76, in renderable
+    self._renderable = Text.from_markup(renderable)
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/rich/text.py", line 286, in from_markup
+    rendered_text = render(text, style, emoji=emoji, emoji_variant=emoji_variant)
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/rich/markup.py", line 174, in render
+    raise MarkupError(
+rich.errors.MarkupError: closing tag '[/]' at position 78 has nothing to close
+ERROR:root:Erro na sua_funcao: closing tag '[/]' at position 19 has nothing to close 
+Traceback (most recent call last):
+  File "/home/andra/guiIA/AGui/gui.py", line 79, in action_response
+    self.label.update(
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/textual/widgets/_static.py", line 97, in update
+    self.renderable = renderable
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/textual/widgets/_static.py", line 76, in renderable
+    self._renderable = Text.from_markup(renderable)
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/rich/text.py", line 286, in from_markup
+    rendered_text = render(text, style, emoji=emoji, emoji_variant=emoji_variant)
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/rich/markup.py", line 174, in render
+    raise MarkupError(
+rich.errors.MarkupError: closing tag '[/]' at position 19 has nothing to close
+ERROR:root:Erro na sua_funcao: closing tag '[/]' at position 19 has nothing to close 
+Traceback (most recent call last):
+  File "/home/andra/guiIA/AGui/gui.py", line 79, in action_response
+    self.label.update(
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/textual/widgets/_static.py", line 97, in update
+    self.renderable = renderable
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/textual/widgets/_static.py", line 76, in renderable
+    self._renderable = Text.from_markup(renderable)
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/rich/text.py", line 286, in from_markup
+    rendered_text = render(text, style, emoji=emoji, emoji_variant=emoji_variant)
+  File "/home/andra/guiIA/AGui/venv/lib/python3.10/site-packages/rich/markup.py", line 174, in render
+    raise MarkupError(
+rich.errors.MarkupError: closing tag '[/]' at position 19 has nothing to close
