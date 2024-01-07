@@ -5,4 +5,4 @@ cookies_snapshot
 __pycache__
 *db
 trash
-
+*.log
