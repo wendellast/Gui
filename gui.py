@@ -14,10 +14,7 @@ class MyApp(App):
 
     CSS_PATH = "style/gui.tcss"
 
-    BINDINGS = [
-        ('enter', 'response()', 'Pronto'),
-        ('ctrl+c', 'exit_app()', 'kill')
-    ]
+    BINDINGS = [("enter", "response()", "Pronto"), ("ctrl+c", "exit_app()", "kill")]
 
     def compose(self) -> ComposeResult:
         yield Header(show_clock=True)
@@ -32,8 +29,6 @@ class MyApp(App):
                 with Horizontal():
                     yield self.input
                     yield Button("Enter", id="button1")
-
-
 
     def action_exit_app(self):
         self.exit()
@@ -72,10 +67,9 @@ class MyApp(App):
 
             msg_gui = f"""[purple b] Gui: [/] [purple] {gui_resp} [/]"""
 
-
             self.label.update(f"""{msg_user.strip()}\n{msg_gui.strip()}""")
 
-            self.input.value = ' '
+            self.input.value = " "
             msg_temp.clear()
 
         except Exception as error:

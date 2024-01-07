@@ -22,6 +22,7 @@ cookie_path_dir = "./cookies_snapshot"
 
 with open("data/config.json", "r", encoding="UTF-8") as file:
     config = json.load(file)
+
 # MEMORY
 if os.path.exists("memory.db"):
     try:
@@ -47,7 +48,7 @@ if os.path.exists("memory.db"):
 # Msg history
 if os.path.exists("memory.db"):
     context = {"User:": user_ask, "Gui:": gui_response}
-    #context = {}
+    # context = {}
 
 
 def response_gui(input_text):
