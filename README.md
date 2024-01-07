@@ -72,4 +72,3 @@ Contribuições são bem-vindas. Se você quiser contribuir para o projeto, siga
 ### Comando verificar se algo indefinição na nomeclatua do codigo: ```task apple```
 
 ### Comando para conserta e ajuste de codigo: ``` task orange```
-
