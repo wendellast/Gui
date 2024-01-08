@@ -1,23 +1,23 @@
-## GUI - Assistente Pessoal
+## GUI - Personal assistant
 
-## Descrição
+## Description
 
-GUI é uma assistente pessoal escrita em Python3 que pode ajudar em tarefas do dia a dia, como tirar dúvidas, e fornecer companhia. supercapaz de se comunicar de forma natural e informativa.
+GUI is a personal assistant written in Python 3 that can help with daily tasks, such as answering questions, and provide companionship. It is highly capable of communicating in a natural and informative manner.
 
-## Instalação
+## Installation
 
-### Para instalar a GUI, siga estas etapas:
+### To install the GUI, follow these steps:
 
-    1º Crie uma conta no site da HuggingFace: https://huggingface.co/
+    1º Create an account on the HuggingFace website: https://huggingface.co/
 
-    2º Crie uma conta >>> Gere seu email e senha no site
+    2º Create an account >>> Generate your email and password on the website
 
-    3º Clone o repositório da GUI: https://github.com/wendellast/Gui
+    3º Clone the GUI repository: https://github.com/wendellast/Gui
 HuggingFace:   https://huggingface.co/
 
 git clone https://github.com/wendellast/Gui
 
-## Crie um ambiente virtual e Ativa:
+## Create a virtual and Active environment:
     # Linux
         python3 -m venv venv
         source venv/bin/activate
@@ -26,24 +26,24 @@ git clone https://github.com/wendellast/Gui
         python -m venv venv
         source venv/Script/activate
 
-## Instale as dependências:
+## Install the dependencies:
 
     pip install -r requirements.txt
 
-## Remova o nome "-EXAMPLE" do arquivo .env:
-    Remova o nome "-example" do arquivo .env
+## Remove the "-EXAMPLE" name from the .env file:
+    Remove the "-example" name from the .env file
 
-    Depois abra abra o arquivo .env e coloque o seu email e senha, da conta gerada no site HuggingFace: https://huggingface.co/
+    Afterwards open the .env file and input your email and password from the account generated on the HuggingFace website: https://huggingface.co/
 
 ![Imagem](img/cache/picture_readme2.png )
 
 ![Imagem](img/cache/picture_readme.png )
 
-    Salve o arquivo e feche-o.
+    Save the file and close it.
 
-## Uso
+## Use
 
-### Para iniciar a GUI, execute o seguinte comando: ``` python3 gui.py ```
+### To start the GUI, run the following command: ``` python3 gui.py ```
 
 
     # Linux:
@@ -52,24 +52,24 @@ git clone https://github.com/wendellast/Gui
     # Windows:
         python gui.py
 
-A GUI será aberta em uma interface grafica no terminal
+The GUI will open in a graphical interface in the terminal.
 
 
-## Contribuições
+## Contributions
 
-Contribuições são bem-vindas. Se você quiser contribuir para o projeto, siga estas etapas:
+Contributions are welcome. If you want to contribute to the project, follow these steps:
 
-    Faça um fork do repositório no GitHub.
-    Faça suas alterações no código.
+    Fork the repository on GitHub.
+    Make your changes to the code.
 
-    Teste suas alterações.
-    rode o comando task apple e task orange antes de enviar a contribuição
+    Test your changes.
+    Run the command 'task apple' and 'task orange' before submitting your contribution.
 
-    Faça um pull request para o repositório principal.
+    Make a pull request to the main repository.
 
-## Rode os comandos antes de enviar o pull request
+## Run the commands before submitting the pull request
 
-### Comando verificar se algo indefinição na nomeclatua do codigo: ```task apple```
+### Command to check for any inconsistencies in the code naming: ```task apple```
 
-### Comando para conserta e ajuste de codigo: ``` task orange```
+### Command for fixing and adjusting code: ``` task orange```
 

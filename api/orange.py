@@ -47,7 +47,7 @@ if os.path.exists("memory.db"):
 # Msg history
 if os.path.exists("memory.db"):
     context = {"User:": user_ask, "Gui:": gui_response}
-    #context = {}
+    # context = {}
 
 
 def response_gui(input_text):

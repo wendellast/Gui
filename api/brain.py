@@ -1,5 +1,6 @@
 import json
 from datetime import datetime
+
 from config.fuctions import logging_error
 
 now = datetime.now()
@@ -10,7 +11,6 @@ try:
         config = json.load(file)
 except Exception as error:
     logging_error(error)
-
 
 
 def prompt4conversation(prompt, context):
