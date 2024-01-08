@@ -11,7 +11,7 @@ dotenv.load_dotenv(dotenv.find_dotenv())
 
 now = datetime.now()
 config = {}
-leguage = os.getenv("leguage").lower()
+language = os.getenv("language")
 
 try:
     with open("data/config.json", "r", encoding="UTF-8") as file:
@@ -30,6 +30,6 @@ def prompt4conversation(prompt, context):
         WRITE ALWAYS ONLY YOUR ACCURATE ANSWER, YOUR ANSWERS MUST BE WRITTEN.
         PREVIUS MESSAGE : ({context})
         NOW THE USER ASK : {prompt} .
-        WRITE THE ANSWER IN {leguage}:"""
+        WRITE THE ANSWER IN {language}:"""
 
     return final_prompt
