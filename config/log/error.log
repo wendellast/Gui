@@ -1,0 +1,6 @@
+ERROR:root:Erro na sua_funcao: 'NoneType' object has no attribute 'strip' 
+Traceback (most recent call last):
+  File "/home/wendellast/Documents/GitHub/Gui/gui.py", line 70, in action_response
+    self.label.update(f"""{msg_user.strip()}\n{msg_gui.strip()}""").strip()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'strip'
