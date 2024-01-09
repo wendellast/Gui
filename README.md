@@ -36,7 +36,6 @@ git clone https://github.com/wendellast/Gui
     Remove the "-example" name from the .env file
 
     Afterwards open the .env file and input your email and password from the account generated on the HuggingFace website: https://huggingface.co/
-    ================================================
 
     After entering your email and password, enter your language below, for example "English: 'en' "
 
