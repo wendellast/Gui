@@ -7,7 +7,7 @@ from textual.widgets import Button, Footer, Header, Input, Label
 
 from api.orange import response_gui
 from config.fuctions import logging_error
-
+from function.banana import response_if
 
 class MyApp(App):
     TITLE = "GUI"
@@ -37,7 +37,10 @@ class MyApp(App):
     @on(Button.Pressed, "#button1")
     def action_response(self):
         try:
-            gui_resp = response_gui(self.input.value)
+            gui_resp = response_if(self.input.value)
+            if gui_resp == False:
+                gui_resp = response_gui(self.input.value)
+
         except:
             print("Erro ao gera a resposta")
 
