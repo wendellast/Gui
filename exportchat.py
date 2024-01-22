@@ -18,7 +18,6 @@ def export_chat():
         #add header
         html_chat += '<center><h1>IA GUI </h1>'
         #add link for danation
-        html_chat += '<h3>🤗 Support the project with a donation for the development of new features 🤗</h3>'
         #add subheader with date and time
         html_chat += '<br><br><h5>' + datetime.now().strftime("%d/%m/%Y %H:%M:%S") + '</h5></center><br><br>'
         #add chat
@@ -31,7 +30,7 @@ def export_chat():
         #add footer
         html_chat += '<br><br><center><small>Thanks you for testing a GUI </small>'
         #add link for danation
-        html_chat += '<h6>🤗 Support the project with a donation for the development of new features 🤗</h6>'
+
 
         html_chat += '</body></html>'
 

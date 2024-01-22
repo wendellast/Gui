@@ -703,7 +703,7 @@ with st.sidebar:
 
     export_chat()
     add_vertical_space(5)
-    html_chat = '<center><h6>🤗 Support the project with a donation for the development of new features 🤗</h6>'
+    html_chat = '<center><h2><strong>Teste demo</strong> <br>  Email: demoguitest@gmail.com <br> Senha: Demoguitest1234 <br> Api-token: 1234  </h2>'
     st.markdown(html_chat, unsafe_allow_html=True)
     st.write('Repository: [Last] (https://github.com/wendellast)')
 
