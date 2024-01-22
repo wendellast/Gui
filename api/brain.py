@@ -2,9 +2,9 @@ import json
 import os
 from datetime import datetime
 
-from config.fuctions import logging_error
 import dotenv
 
+from config.fuctions import logging_error
 
 dotenv.load_dotenv(dotenv.find_dotenv())
 
@@ -14,7 +14,7 @@ config = {}
 language = os.getenv("language")
 
 if language == None:
-    language = 'Portugues-Br'
+    language = "Portugues-Br"
 
 try:
     with open("data/config.json", "r", encoding="UTF-8") as file:
@@ -38,7 +38,8 @@ def prompt4conversation(prompt, context):
 
     return final_prompt
 
-def prompt4conversationInternet(prompt,context, internet, resume):
+
+def prompt4conversationInternet(prompt, context, internet, resume):
     final_prompt = f"""
         GENERAL INFORMATION : (today is {now.strftime("%d/%m/%Y %H:%M:%S")} ,
         YOU IS BUILT BY GROUP LAST THE OWENER, YOUR NAME IS 'GUI',
@@ -54,6 +55,7 @@ def prompt4conversationInternet(prompt,context, internet, resume):
         WRITE THE ANSWER BASED ON INTERNET INFORMATION  IN {language} :"""
     return final_prompt
 
+
 def prompt4Data(prompt, context, solution):
     final_prompt = f"""
         GENERAL INFORMATION : (today is {now.strftime("%d/%m/%Y %H:%M:%S")} ,
@@ -67,6 +69,7 @@ def prompt4Data(prompt, context, solution):
         THIS IS THE CORRECT ANSWER : ({solution})
         MAKE THE ANSWER MORE ARGUMENTED, WITHOUT CHANGING ANYTHING OF THE CORRECT ANSWER  IN {language}:"""
     return final_prompt
+
 
 def prompt4Code(prompt, context, solution):
     final_prompt = f"""
@@ -112,6 +115,7 @@ def prompt4Audio(prompt, context, solution):
         WITHOUT CHANGING ANYTHING OF CORRECT ANSWER , MAKE THE ANSWER MORE DETALIED  IN {language}:"""
 
     return final_prompt
+
 
 def prompt4YT(prompt, context, solution):
     final_prompt = f"""
