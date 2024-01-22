@@ -13,6 +13,9 @@ now = datetime.now()
 config = {}
 language = os.getenv("language")
 
+if language == None:
+    language = 'Portugues-Br'
+
 try:
     with open("data/config.json", "r", encoding="UTF-8") as file:
         config = json.load(file)
@@ -122,4 +125,3 @@ def prompt4YT(prompt, context, solution):
         THIS IS THE CORRECT ANSWER based on Youtube video gived in input : ({solution})
         WITHOUT CHANGING ANYTHING OF CORRECT ANSWER , MAKE THE ANSWER MORE DETALIED:  IN {language}"""
     return final_prompt
-
