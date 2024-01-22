@@ -702,10 +702,12 @@ with st.sidebar:
             st.experimental_rerun()
 
     export_chat()
-    add_vertical_space(5)
-    html_chat = '<center><h2><strong>L Teste demo</strong> <br>  Email: demoguitest@gmail.com <br> Senha: Demoguitest1234 <br> Api-token: 1234  </h2>'
+    #add_vertical_space(5)
+    html_chat = '<center><h2><strong>Teste demo</strong> <br>  Email: demoguitest@gmail.com <br> Senha: Demoguitest1234 <br> Api-token: 1234  </h2>'
     st.markdown(html_chat, unsafe_allow_html=True)
     st.write('Wendelllast: [Last] (https://portfolio-nine-lovat-40.vercel.app/)')
+    st.write('Repository: [Last] (https://github.com/wendellast/Gui)')
+
 
 ##### End of sidebar
 
