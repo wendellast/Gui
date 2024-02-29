@@ -1244,10 +1244,13 @@ def generate_response(prompt):
 ## Conditional display of AI generated responses as a function of user provided prompts
 with response_container:
     if input_text and "hf_email" in st.session_state and "hf_pass" in st.session_state:
-        response = generate_response(input_text)
-        st.session_state.past.append(input_text)
-        resp_bot =  str(response)
-        st.session_state.generated.append(resp_bot)
+        try:
+             response = generate_response(input_text)
+        except hugchat.exceptions.ChatError as e:
+            st.error(f"Erro ao gerar resposta: {e}")
+        else:
+            st.session_state.past.append(input_text)
+            st.session_state.generated.append(response)
 
     # print message in normal order, frist user then bot
     if "generated" in st.session_state:
