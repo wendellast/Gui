@@ -1246,7 +1246,8 @@ with response_container:
     if input_text and "hf_email" in st.session_state and "hf_pass" in st.session_state:
         response = generate_response(input_text)
         st.session_state.past.append(input_text)
-        st.session_state.generated.append(response)
+        resp_bot =  str(response)
+        st.session_state.generated.append(resp_bot)
 
     # print message in normal order, frist user then bot
     if "generated" in st.session_state:
