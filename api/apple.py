@@ -7,7 +7,6 @@ from langchain.llms.base import LLM
 
 
 class HuggingChat(LLM):
-
     """HuggingChat LLM wrapper."""
 
     chatbot: Optional[hugchat.ChatBot] = None
@@ -17,9 +16,9 @@ class HuggingChat(LLM):
     cookie_path: Optional[str] = None
 
     conversation: Optional[str] = None
-    model: Optional[
-        int
-    ] = 0  # 0 = OpenAssistant/oasst-sft-6-llama-30b-xor , 1 = meta-llama/Llama-2-70b-chat-hf
+    model: Optional[int] = (
+        0  # 0 = OpenAssistant/oasst-sft-6-llama-30b-xor , 1 = meta-llama/Llama-2-70b-chat-hf
+    )
 
     temperature: Optional[float] = 0.9
     top_p: Optional[float] = 0.5

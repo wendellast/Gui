@@ -38,7 +38,7 @@ class MyApp(App):
         try:
             gui_resp = response_gui(self.input.value)
         except:
-            print("Erro ao gera a resposta")
+            logging_error("Response Error")
 
         try:
             conn = sqlite3.connect("memory.db")

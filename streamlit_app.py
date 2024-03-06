@@ -677,7 +677,9 @@ with st.sidebar:
                 yt_url = st.text_input("1.📺 Enter a YouTube URL")
                 yt_url2 = st.text_input("2.📺 Enter a YouTube URL")
                 yt_url3 = st.text_input("3.📺 Enter a YouTube URL")
-                if yt_url is not None and st.button("🎥✅ Add YouTube video to context"):
+                if yt_url is not None and st.button(
+                    "🎥✅ Add YouTube video to context"
+                ):
                     if yt_url != "":
                         video = 1
                         yt_url = yt_url.split("=")[1]
@@ -1244,18 +1246,9 @@ def generate_response(prompt):
 ## Conditional display of AI generated responses as a function of user provided prompts
 with response_container:
     if input_text and "hf_email" in st.session_state and "hf_pass" in st.session_state:
-
-        try:
-            response = generate_response(input_text)
-            if response:
-                st.session_state.past.append(input_text)
-                st.session_state.generated.append(response)
-            else:
-                st.error("Erro ao gerar resposta: Resposta vazia recebida.")
-        except hugchat.exceptions.ChatError as e:
-            st.error(f"Erro ao gerar resposta: {e}")
-        except Exception as ex:
-            st.error(f"Erro desconhecido: {ex}")
+        response = generate_response(input_text)
+        st.session_state.past.append(input_text)
+        st.session_state.generated.append(response)
 
     # print message in normal order, frist user then bot
     if "generated" in st.session_state:
