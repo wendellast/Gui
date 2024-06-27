@@ -90,9 +90,9 @@ with st.sidebar:
                 "⚠️ You need to login in Hugging Face to use this app. You can register [here](https://huggingface.co/join)."
             )
             st.header("Hugging Face Login")
-            hf_email = st.text_input("Enter E-mail:", "example@example.com")
-            hf_pass = st.text_input("Enter password:", type="password")
-            hf_token = st.text_input("Enter API Token:", type="password")
+            hf_email = st.text_input("Enter E-mail:", "demoguitest@gmail.com")
+            hf_pass = st.text_input("Enter password:", type="password", "Demoguitest1234")
+            hf_token = st.text_input("Enter API Token:", type="password", "1234")
             if st.button("Login 🚀") and hf_email and hf_pass and hf_token:
                 with st.spinner("🚀 Logging in..."):
                     st.session_state["hf_email"] = hf_email
