@@ -91,8 +91,8 @@ with st.sidebar:
             )
             st.header("Hugging Face Login")
             hf_email = st.text_input("Enter E-mail:", "demoguitest@gmail.com")
-            hf_pass = st.text_input("Enter password:", type="password", "Demoguitest1234")
-            hf_token = st.text_input("Enter API Token:", type="password", "1234")
+            hf_pass = st.text_input("Enter password:",  "Demoguitest1234", type="password")
+            hf_token = st.text_input("Enter API Token:", "1234", type="password")
             if st.button("Login 🚀") and hf_email and hf_pass and hf_token:
                 with st.spinner("🚀 Logging in..."):
                     st.session_state["hf_email"] = hf_email
