@@ -5,19 +5,17 @@ from hugchat import hugchat
 from langchain.callbacks.manager import CallbackManagerForLLMRun
 from langchain.llms.base import LLM
 
-
 class HuggingChat(LLM):
     """HuggingChat LLM wrapper."""
 
     chatbot: Optional[hugchat.ChatBot] = None
-
     email: Optional[str] = None
     psw: Optional[str] = None
     cookie_path: Optional[str] = None
 
     conversation: Optional[str] = None
     model: Optional[int] = (
-        0  # 0 = OpenAssistant/oasst-sft-6-llama-30b-xor , 1 = meta-llama/Llama-2-70b-chat-hf
+       1  # 0 = OpenAssistant/oasst-sft-6-llama-30b-xor , 1 = meta-llama/Llama-2-70b-chat-hf
     )
 
     temperature: Optional[float] = 0.9
@@ -35,7 +33,7 @@ class HuggingChat(LLM):
     retry_count: Optional[int] = 5
 
     avg_response_time: float = 0.0
-    log: Optional[bool] = False
+    log: Optional[bool] = True
 
     @property
     def _llm_type(self) -> str:
@@ -55,18 +53,12 @@ class HuggingChat(LLM):
                 cookies = sign.login()
                 end_time = time.time()
                 if self.log:
-                    print(
-                        f"\n[LOG] Login successfull in {round(end_time - start_time)} seconds"
-                    )
+                    print(f"\n[LOG] Login successful in {round(end_time - start_time)} seconds")
             else:
                 # Create a ChatBot using cookie_path
-                cookies = self.cookie_path and hugchat.ChatBot(
-                    cookie_path=self.cookie_path
-                )
+                cookies = self.cookie_path and hugchat.ChatBot(cookie_path=self.cookie_path)
 
-            self.chatbot = cookies.get_dict() and hugchat.ChatBot(
-                cookies=cookies.get_dict()
-            )
+            self.chatbot = cookies.get_dict() and hugchat.ChatBot(cookies=cookies.get_dict())
             if self.log:
                 print(f"[LOG] LLM WRAPPER created successfully")
 
@@ -78,9 +70,7 @@ class HuggingChat(LLM):
         # Setup ChatBot info
         self.chatbot.switch_llm(self.model)
         if self.log:
-            print(
-                f"[LOG] LLM WRAPPER switched to model { 'OpenAssistant/oasst-sft-6-llama-30b-xor' if self.model == 0 else 'meta-llama/Llama-2-70b-chat-hf'}"
-            )
+            print(f"[LOG] LLM WRAPPER switched to model {'OpenAssistant/oasst-sft-6-llama-30b-xor' if self.model == 0 else 'meta-llama/Llama-2-70b-chat-hf'}")
 
         self.conversation = self.conversation or self.chatbot.new_conversation()
         self.chatbot.change_conversation(self.conversation)
@@ -129,13 +119,9 @@ class HuggingChat(LLM):
             )
 
             if self.log:
-                print(
-                    f"[LOG] LLM WRAPPER response time: {round(end_time - start_time)} seconds"
-                )
+                print(f"[LOG] LLM WRAPPER response time: {round(end_time - start_time)} seconds")
             if self.log:
-                print(
-                    f"[LOG] LLM WRAPPER avg response time: {round(self.avg_response_time)} seconds"
-                )
+                print(f"[LOG] LLM WRAPPER avg response time: {round(self.avg_response_time)} seconds")
             if self.log:
                 print(f"[LOG] LLM WRAPPER response: {resp}\n\n")
 

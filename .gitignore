@@ -4,7 +4,8 @@ venv/
 cookies_snapshot
 __pycache__
 *db
+config/log
 trash
+chat.html
 *.log
 erro.log
-chat.html

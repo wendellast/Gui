@@ -18,7 +18,7 @@ context = {}
 
 email = os.getenv("email")
 password = os.getenv("password")
-cookie_path_dir = "./cookies_snapshot"
+# cookie_path_dir = "./cookies_snapshot"
 
 with open("data/config.json", "r", encoding="UTF-8") as file:
     config = json.load(file)
@@ -53,6 +53,6 @@ if os.path.exists("memory.db"):
 
 def response_gui(input_text):
     resp = prompt4conversation(input_text, context=context)
-    llm = HuggingChat(email=email, psw=password, log=False, use_cache=True, model=0)
+    llm = HuggingChat(email=email, psw=password, log=False, use_cache=False, model=0)
 
     return llm(resp)
