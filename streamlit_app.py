@@ -27,8 +27,8 @@ import speech_recognition as sr
 from bs4 import BeautifulSoup
 from duckduckgo_search import DDGS
 from langchain.chains import RetrievalQA
-from langchain_community.embeddings import HuggingFaceHubEmbeddings
-# from langchain_huggingface import HuggingFaceEndpointEmbeddings
+# from langchain_community.embeddings import HuggingFaceHubEmbeddings
+from langchain_huggingface import HuggingFaceEndpointEmbeddings
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from pydub import AudioSegment
@@ -54,7 +54,7 @@ repo_id = "sentence-transformers/all-mpnet-base-v2"
 
 if "hf_token" in st.session_state:
     if "hf" not in st.session_state:
-        hf = HuggingFaceHubEmbeddings(
+        hf = HuggingFaceEndpointEmbeddings(
             repo_id=repo_id,
             task="feature-extraction",
             huggingfacehub_api_token=st.session_state["hf_token"],
