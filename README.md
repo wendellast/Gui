@@ -5,7 +5,7 @@
 GUI is a personal assistant written in Python 3 that can help with daily tasks, such as answering questions, and provide companionship. It is highly capable of communicating in a natural and informative manner.
 
 ## Test Demo web
-Access the link: https://guitestapi.streamlit.app/
+Access the link: https://gui-ia.streamlit.app/
 
     Enter the information below:
     Email: demoguitest@gmail.com
