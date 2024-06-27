@@ -27,9 +27,9 @@ import speech_recognition as sr
 from bs4 import BeautifulSoup
 from duckduckgo_search import DDGS
 from langchain.chains import RetrievalQA
-from langchain.embeddings import HuggingFaceHubEmbeddings
+from langchain_community.embeddings import HuggingFaceHubEmbeddings
 from langchain.text_splitter import CharacterTextSplitter
-from langchain.vectorstores import Chroma
+from langchain_community.vectorstores import Chroma
 from pydub import AudioSegment
 from youtube_transcript_api import YouTubeTranscriptApi
 
@@ -117,7 +117,7 @@ with st.sidebar:
                         del st.session_state["hf_email"]
                         del st.session_state["hf_pass"]
                         del st.session_state["hf_token"]
-                        st.experimental_rerun()
+                        st.rerun()
 
                     st.session_state["chatbot"] = chatbot
 
@@ -140,7 +140,7 @@ with st.sidebar:
                         psw=st.session_state["hf_pass"],
                     )
 
-                    st.experimental_rerun()
+                    st.rerun()
 
     else:
         with st.expander("ℹ️ Advanced Settings"):
@@ -249,7 +249,7 @@ with st.sidebar:
                         )
                     if st.button("🌐 Save change"):
                         st.session_state["web_search"] = "True"
-                        st.experimental_rerun()
+                        st.rerun()
 
         elif (
             st.session_state["plugin"] == "🌐 Web Search"
@@ -267,7 +267,7 @@ with st.sidebar:
                     del st.session_state["timelimit"]
                     del st.session_state["max_results"]
                     del st.session_state["plugin"]
-                    st.experimental_rerun()
+                    st.rerun()
 
         # GOD MODE PLUGIN
         if (
@@ -433,7 +433,7 @@ with st.sidebar:
                                 + f"**. The knowledge is based on\n- {len(news)} news🗞\n- {len(yt_ids)} YT videos📺\n- {len(links)} websites🌐 \n"
                             )
 
-                        st.experimental_rerun()
+                        st.rerun()
 
         if (
             st.session_state["plugin"] == "🧠 GOD MODE"
@@ -457,7 +457,7 @@ with st.sidebar:
                     del st.session_state["god_mode_info"]
                     del st.session_state["god_mode_source"]
                     del st.session_state["plugin"]
-                    st.experimental_rerun()
+                    st.rerun()
 
         # DATA PLUGIN
         if (
@@ -469,13 +469,13 @@ with st.sidebar:
                 if upload_csv is not None:
                     df = pd.read_csv(upload_csv)
                     st.session_state["df"] = df
-                    st.experimental_rerun()
+                    st.rerun()
         if st.session_state["plugin"] == "📋 Talk with your DATA":
             if st.button("🛑📋 Remove DATA from context"):
                 if "df" in st.session_state:
                     del st.session_state["df"]
                 del st.session_state["plugin"]
-                st.experimental_rerun()
+                st.rerun()
 
         # DOCUMENTS PLUGIN
         if (
@@ -549,7 +549,7 @@ with st.sidebar:
                         )
                         st.session_state["pdf"] = qa
 
-                    st.experimental_rerun()
+                    st.rerun()
 
         if st.session_state["plugin"] == "📝 Talk with your DOCUMENTS":
             if "db" in st.session_state:
@@ -568,7 +568,7 @@ with st.sidebar:
                     del st.session_state["documents"]
                 del st.session_state["plugin"]
 
-                st.experimental_rerun()
+                st.rerun()
 
         # AUDIO PLUGIN
         if (
@@ -648,7 +648,7 @@ with st.sidebar:
                         )
                         st.session_state["audio"] = qa
                         st.session_state["audio_text"] = text
-                    st.experimental_rerun()
+                    st.rerun()
 
         if st.session_state["plugin"] == "🎧 Talk with your AUDIO":
             if "db" in st.session_state:
@@ -666,7 +666,7 @@ with st.sidebar:
                     del st.session_state["audio"]
                     del st.session_state["audio_text"]
                 del st.session_state["plugin"]
-                st.experimental_rerun()
+                st.rerun()
 
         # YT PLUGIN
         if (
@@ -768,7 +768,7 @@ with st.sidebar:
                             )
                             st.session_state["yt"] = qa
                             st.session_state["yt_text"] = text_list
-                        st.experimental_rerun()
+                        st.rerun()
 
         if st.session_state["plugin"] == "🎥 Talk with YT video":
             if "db" in st.session_state:
@@ -787,7 +787,7 @@ with st.sidebar:
                     del st.session_state["yt"]
                     del st.session_state["yt_text"]
                 del st.session_state["plugin"]
-                st.experimental_rerun()
+                st.rerun()
 
         # WEBSITE PLUGIN
         if (
@@ -852,7 +852,7 @@ with st.sidebar:
                             )
                             st.session_state["web_sites"] = qa
                             st.session_state["web_text"] = text
-                        st.experimental_rerun()
+                        st.rerun()
 
         if st.session_state["plugin"] == "🔗 Talk with Website":
             if "db" in st.session_state:
@@ -871,7 +871,7 @@ with st.sidebar:
                     del st.session_state["web_sites"]
                     del st.session_state["web_text"]
                 del st.session_state["plugin"]
-                st.experimental_rerun()
+                st.rerun()
 
         # UPLOAD PREVIUS VECTORSTORE
         if (
@@ -912,14 +912,14 @@ with st.sidebar:
                                 return_source_documents=True,
                             )
                             st.session_state["old_db"] = qa
-                            st.experimental_rerun()
+                            st.rerun()
 
         if st.session_state["plugin"] == "💾 Upload saved VectorStore":
             if st.button("🛑💾 Remove VectorStore from context"):
                 if "old_db" in st.session_state:
                     del st.session_state["old_db"]
                 del st.session_state["plugin"]
-                st.experimental_rerun()
+                st.rerun()
 
     # END OF PLUGIN
     add_vertical_space(4)
@@ -928,7 +928,7 @@ with st.sidebar:
             keys = list(st.session_state.keys())
             for key in keys:
                 del st.session_state[key]
-            st.experimental_rerun()
+            st.rerun()
 
     export_chat()
     # add_vertical_space(5)
