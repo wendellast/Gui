@@ -28,6 +28,7 @@ from bs4 import BeautifulSoup
 from duckduckgo_search import DDGS
 from langchain.chains import RetrievalQA
 from langchain_community.embeddings import HuggingFaceHubEmbeddings
+# from langchain_huggingface import HuggingFaceEndpointEmbeddings
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from pydub import AudioSegment
@@ -81,7 +82,7 @@ st.markdown(
 
 # Sidebar contents for logIN, choose plugin, and export chat
 with st.sidebar:
-    st.title("🤗💬 PersonalChat App")
+    st.title("🤗💬 GUI Pessoal assistente")
 
     if "hf_email" not in st.session_state or "hf_pass" not in st.session_state:
         with st.expander("ℹ️ Login in Hugging Face", expanded=True):
@@ -89,7 +90,7 @@ with st.sidebar:
                 "⚠️ You need to login in Hugging Face to use this app. You can register [here](https://huggingface.co/join)."
             )
             st.header("Hugging Face Login")
-            hf_email = st.text_input("Enter E-mail:")
+            hf_email = st.text_input("Enter E-mail:", "example@example.com")
             hf_pass = st.text_input("Enter password:", type="password")
             hf_token = st.text_input("Enter API Token:", type="password")
             if st.button("Login 🚀") and hf_email and hf_pass and hf_token:
