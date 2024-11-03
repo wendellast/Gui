@@ -4,15 +4,14 @@ from textual import on
 from textual.app import App, ComposeResult
 from textual.containers import Container, Horizontal, VerticalScroll
 from textual.widgets import Button, Footer, Header, Input, Label
-
-from api.orange import response_gui
-from config.fuctions import logging_error
+from api.v2.api import response_gui
+from config.logger import logging_error
 
 
 class MyApp(App):
     TITLE = "GUI"
 
-    CSS_PATH = "style/gui.tcss"
+    CSS_PATH = "static/assets/style/gui.tcss"
 
     BINDINGS = [("enter", "response()", "Pronto"), ("ctrl+c", "exit_app()", "kill")]
 

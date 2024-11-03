@@ -3,9 +3,9 @@ import sqlite3
 
 import dotenv
 
-from api.apple import HuggingChat
-from api.brain import prompt4conversation
-from config.fuctions import logging_error
+from api.v1.apple import HuggingChat
+from api.v1.brain import prompt4conversation
+from config.logger import logging_error
 
 dotenv.load_dotenv(dotenv.find_dotenv())
 

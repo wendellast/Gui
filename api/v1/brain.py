@@ -4,7 +4,7 @@ from datetime import datetime
 
 import dotenv
 
-from config.fuctions import logging_error
+from config.logger import logging_error
 
 dotenv.load_dotenv(dotenv.find_dotenv())
 

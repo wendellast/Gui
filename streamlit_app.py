@@ -34,8 +34,8 @@ from langchain_community.vectorstores import Chroma
 from pydub import AudioSegment
 from youtube_transcript_api import YouTubeTranscriptApi
 
-from api.apple import HuggingChat
-from api.brain import (
+from api.v1.apple import HuggingChat
+from api.v1.brain import (
     prompt4Audio,
     prompt4Code,
     prompt4Context,

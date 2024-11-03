@@ -12,7 +12,7 @@ language = os.getenv("language")
 debug = bool(debug)
 
 # Config logging
-logging.basicConfig(filename="config/log/error.log", level=logging.ERROR)
+logging.basicConfig(filename="log/error.log", level=logging.ERROR)
 
 
 def logging_error(error):

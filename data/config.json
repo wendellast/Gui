@@ -8,17 +8,16 @@
           "function": "geral devloper",
           "profile": "https://github.com/wendellast"
         },
-        "Andra-sun": {
-          "name": "Andra-sun",
-          "function": "designer devloper",
-          "profile": "https://github.com/Andra-sun"
-        },
-
         "contri": [
             {
             "name": "LuyysHenriqueKuromi",
             "function": "Translate components to English",
             "profile": "https://github.com/LuyysHenriqueKuromi"
+            },
+            {
+            "name": "Andra-sun",
+            "function": "designer devloper",
+            "profile": "https://github.com/Andra-sun"
             }
         ]
       }
