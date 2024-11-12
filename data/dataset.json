@@ -1,0 +1,7 @@
+[
+    {
+        "instruction": "Dada a conversa a seguir e uma pergunta de acompanhamento, reformule a pergunta de acompanhamento para que seja uma pergunta independente.\nHistórico da Conversa:\nUsuário: Como posso melhorar minha produtividade?\nIA: Existem várias formas de melhorar sua produtividade, como fazer listas de tarefas, usar técnicas de pomodoro, eliminar distrações e garantir pausas regulares. E, claro, tomar aquele cafézinho milagroso (ou seria o quinto do dia?).",
+        "input": "Então, o café realmente ajuda a focar?",
+        "output": "Pergunta independente: O café realmente é eficaz para melhorar o foco e a concentração ou é só uma desculpa para beber mais café?"
+    }
+]
