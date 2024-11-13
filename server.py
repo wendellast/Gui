@@ -1,39 +1,50 @@
-import gradio as gr
-from huggingface_hub import InferenceClient
-from datasets import load_dataset
-import dotenv
-import os
-from langchain.prompts import PromptTemplate
-from typing import List, Tuple, Optional
-from manage.prompt_gui import prompt_template_gui, template_gui, extrair_dados_config
 from datetime import datetime
-from util.token_access import load_token
-regras, desenvolvedor_name, country, name_gui, desenvolvedor_description = extrair_dados_config()
+from typing import List, Optional, Tuple
 
-dotenv.load_dotenv(dotenv.find_dotenv())
+
+import gradio as gr
+from datasets import load_dataset
+from huggingface_hub import InferenceClient
+
+from config.prompt_gui import (
+    prompt_template_gui,
+    template_gui,
+)
+
+
+from util.token_access import load_token
+from util.data_config import extrair_dados_config
+
+regras, desenvolvedor_name, country, name_gui, desenvolvedor_description = (
+    extrair_dados_config()
+)
+
+try:
+    with open("static/assets/js/script.js", "r", encoding="UTF-8") as js_file:
+        js_code = js_file.read()
+except:
+    raise "Erro ao carrega codigo js"
+
+
 
 token: Optional[str] = load_token()
 now: datetime = datetime.now()
-
+model: str = "meta-llama/Llama-3.2-3B-Instruct"
+js=js_code
 
 template_gui = template_gui()
 prompt_template = prompt_template_gui(template_gui)
 
 
 client: InferenceClient = InferenceClient(
-    model="meta-llama/Llama-3.2-3B-Instruct",
-    token=token
+    model=model, token=token
 )
 
 
 dataset = load_dataset("wendellast/GUI-Ban")
 
 
-
-def get_response_from_huggingface_dataset(
-    message: str,
-    dataset
-) -> Optional[str]:
+def get_response_from_huggingface_dataset(message: str, dataset) -> Optional[str]:
     for data in dataset["train"]:
         if "dialog" in data and len(data["dialog"]) > 1:
             input_text: str = data["dialog"][0].lower()
@@ -58,14 +69,12 @@ def respond(
         yield response
         return
 
-
     historico: str = ""
     for user_msg, bot_reply in history:
         if user_msg:
             historico += f"Usuário: {user_msg}\n"
         if bot_reply:
             historico += f"IA: {bot_reply}\n"
-
 
     prompt: str = prompt_template.format(
         name=name_gui,
@@ -75,13 +84,11 @@ def respond(
         desenvolvedor_description=desenvolvedor_description,
         pais=country,
         historico=historico.strip(),
-        mensagem=message
-                )
-
+        mensagem=message,
+    )
 
     messages: List[dict] = [{"role": "system", "content": prompt}]
     response: str = ""
-
 
     for message in client.chat_completion(
         messages,
@@ -98,13 +105,20 @@ def respond(
 demo: gr.ChatInterface = gr.ChatInterface(
     respond,
     additional_inputs=[
-        gr.Textbox(value='', label="System message"),
+        gr.Textbox(value="", label="System message"),
         gr.Slider(minimum=1, maximum=2048, value=512, step=1, label="Max new tokens"),
         gr.Slider(minimum=0.1, maximum=4.0, value=0.7, step=0.1, label="Temperature"),
-        gr.Slider(minimum=0.1, maximum=1.0, value=0.95, step=0.05, label="Top-p (nucleus sampling)"),
+        gr.Slider(
+            minimum=0.1,
+            maximum=1.0,
+            value=0.95,
+            step=0.05,
+            label="Top-p (nucleus sampling)",
+        ),
     ],
     title="GUI",
-    theme='gstaff/xkcd'
+    theme="gstaff/xkcd",
+    js=js
 )
 
 # Inicializar a aplicação

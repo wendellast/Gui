@@ -1,9 +1,13 @@
-from langchain.llms.base import LLM
 from typing import Optional
-from util.token_access import load_token
+
 import requests
+from langchain.llms.base import LLM
+
+from util.token_access import load_token
 
 token = load_token()
+
+model = "meta-llama/Llama-3.2-3B-Instruct"
 
 class GuiChat(LLM):
     """GUI LLM wrapper usando login via token."""
@@ -11,7 +15,7 @@ class GuiChat(LLM):
     chatbot: Optional[object] = None
     auth_token: Optional[str] = None
     conversation: Optional[str] = None
-    model: Optional[str] = "meta-llama/Llama-3.2-3B-Instruct"
+    model: Optional[str] = model
 
     temperature: Optional[float] = 0.9
     top_p: Optional[float] = 0.5
@@ -31,7 +35,7 @@ class GuiChat(LLM):
         """Chama o modelo Hugging Face e retorna a resposta."""
         headers = {
             "Authorization": f"Bearer {self.auth_token}",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         }
 
         endpoint = f"https://api-inference.huggingface.co/models/{self.model}"
@@ -44,10 +48,9 @@ class GuiChat(LLM):
                 "top_p": self.top_p,
                 "top_k": self.top_k,
                 "repetition_penalty": self.repetition_penalty,
-                "truncate": self.truncate
-            }
+                "truncate": self.truncate,
+            },
         }
-
 
         response = requests.post(endpoint, headers=headers, json=payload)
 
@@ -61,9 +64,10 @@ class GuiChat(LLM):
         return self.avg_response_time
 
 
-
 chatbot = GuiChat(auth_token=token)
 
+
+#TEST-BOT
 """
 while True:
     ask = input("Digite aqui: ")
