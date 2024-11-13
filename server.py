@@ -116,8 +116,8 @@ demo: gr.ChatInterface = gr.ChatInterface(
             label="Top-p (nucleus sampling)",
         ),
     ],
-    title="GUI",
     theme="gstaff/xkcd",
+    title="GUI",
     js=js
 )
 
