@@ -1,12 +1,56 @@
 import sys
+import threading
 import psutil
 from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton
 from PySide6.QtGui import QMovie, QIcon
 from PySide6.QtCore import Qt, QTimer, QDate, QTime, QProcess
 from chat import ChatWindow
+from PySide6.QtCore import Qt, QTimer, QDate, QTime, QThread, Signal
+
+import speech_recognition as sr
 # Configurações do tema e versão
 Thema = 'static/assets/img/gui.gif'  # Altere o tema da sara de 1 a 5 ou padrão escreva sara
 Versao = 'Versão Beta v2.0'  # Versão da Sara
+class AudioRecognitionThread(QThread):
+    """Thread para reconhecimento de áudio"""
+    voice_recognized = Signal(str)  # Sinal para passar o texto reconhecido
+
+    def __init__(self):
+        super().__init__()
+        self.running = True
+
+    def run(self):
+        recognizer = sr.Recognizer()
+        try:
+            with sr.Microphone() as source:
+                print("Ajustando ao ruído ambiente...")
+                recognizer.adjust_for_ambient_noise(source)
+
+                while self.running:
+                    print("Ouvindo...")
+                    try:
+                        audio = recognizer.listen(source, timeout=10)  # Aumentei o timeout para 10 segundos
+
+                        # Reconhece o que foi dito
+                        text = recognizer.recognize_google(audio, language="pt-BR")
+                        print(f"Texto reconhecido: {text}")
+                        self.voice_recognized.emit(text)
+
+                    except sr.UnknownValueError:
+                        print("Não foi possível entender o áudio. Tentando novamente...")
+                    except sr.RequestError as e:
+                        print(f"Erro no serviço de reconhecimento: {e}. Tentando novamente...")
+                    except Exception as e:
+                        print(f"Erro inesperado: {e}. Tentando novamente...")
+
+        except Exception as e:
+            print(f"Erro no início da escuta: {e}")
+
+
+    def stop(self):
+        """Para a execução da thread"""
+        self.running = False
+        print("Thread parada.")
 
 
 class Janela(QMainWindow):
@@ -104,7 +148,21 @@ class Janela(QMainWindow):
 
         # Configurações da janela
         self.CarregarJanela()
-        self.chat_window = None  # Inicializa a janela de chat como None
+        self.iniciar_thread_microfone()
+        self.chat_window = None
+
+
+
+
+    def iniciar_thread_microfone(self):
+        """Inicia a thread para o reconhecimento de áudio."""
+        self.audio_thread = AudioRecognitionThread()
+        self.audio_thread.voice_recognized.connect(self.processar_comando)
+        self.audio_thread.start()
+
+    def processar_comando(self, texto):
+        """Processa o comando de voz recebido"""
+        print(f"Comando de voz recebido: {texto}")
 
     def abrir_chat(self):
         """Abre a janela de chat"""
