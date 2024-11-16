@@ -1,12 +1,13 @@
-
-import speech_recognition as sr
 from PySide6.QtCore import  QThread, Signal
 from util.command_actions import command_resp
 from config.api import response_gui
+
+import speech_recognition as sr
 import subprocess
-
 import time
-
+import subprocess
+import platform
+import pyttsx3
 
 
 class SpeakThread(QThread):
@@ -17,8 +18,51 @@ class SpeakThread(QThread):
         self.texto = texto
 
     def run(self):
-        command = ["spd-say", "-o", "rhvoice", "-y", "leticia-f123", "-w", self.texto]
-        subprocess.call(command)
+        system = platform.system()
+
+        if system == "Windows":
+            # Usar pyttsx3 no Windows
+            engine = pyttsx3.init()
+            voices = engine.getProperty('voices')
+            leticia_found = False
+            for voice in voices:
+                if "Letícia" in voice.name:
+                    engine.setProperty('voice', voice.id)
+                    leticia_found = True
+                    break
+            if not leticia_found:
+                engine.setProperty('voice', voices[0].id)
+
+            engine.say(self.texto)
+            engine.runAndWait()
+
+        elif system == "Linux":
+
+            engine = pyttsx3.init()
+            voices = engine.getProperty('voices')
+            leticia_found = False
+            for voice in voices:
+                if "Letícia" in voice.name:
+                    engine.setProperty('voice', voice.id)
+                    leticia_found = True
+                    break
+            if not leticia_found:
+
+                command = ["spd-say", "-o", "rhvoice", "-y", "leticia-f123", "-w", self.texto]
+                try:
+                    subprocess.call(command)
+                    return
+                except FileNotFoundError:
+
+                    engine.setProperty('voice', 'english-us')
+                    engine.say(self.texto)
+                    engine.runAndWait()
+                    return
+
+            # Se achou a voz Letícia no pyttsx3
+            engine.say(self.texto)
+            engine.runAndWait()
+
 
 
 class AudioRecognitionThread(QThread):

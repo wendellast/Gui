@@ -35,6 +35,8 @@ Welcome! The GUI is a virtual assistant designed to answer your questions in a f
 
 ## How to Run
 
+
+### option 1: Running via Server
 To start the server, run:
 
 ```bash
@@ -42,6 +44,38 @@ python server.py
 ```
 
 Open your browser and go to `http://localhost:7860` to interact with the AI chatbot.
+
+
+### Option 2: Running via Graphical Interface
+
+To start the server and open the graphical interface, simply run the following command:
+
+```bash
+python gui.py
+```
+
+This will launch the application with the virtual assistant interface, where you can interact using voice or buttons.
+
+---
+
+## Speech Configuration
+
+The virtual assistant uses speech synthesis to respond to the user. jWe recommend using the **Letícia** voice, a high-quality Brazilian voice, for the best experience.
+
+### 1. Using the **Letícia** Voice
+
+We recommend using the **Letícia** voice. jTo set it up, follow these steps:
+
+- Visit the [Louderpages - Letícia](https://louderpages.org/leticia) website.
+- Github [Rhvoices](https://github.com/RHVoice/RHVoice)
+- Follow the instructions to configure the **Letícia** voice.
+
+### 2. Other Alternatives
+
+If you prefer, you can also use other speech synthesis options:
+
+- **Espeak**: jAn open-source alternative.
+- **SAPI5 (Windows)**: jThe native speech synthesis API for Windows.
 
 ## API
 
