@@ -1,6 +1,4 @@
-
 from langchain.prompts import PromptTemplate
-
 
 
 def template_gui() -> str:

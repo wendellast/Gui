@@ -1,6 +1,5 @@
 import json
 
-
 try:
     with open("data/config.json", "r", encoding="UTF-8") as file:
         config: dict = json.load(file)
