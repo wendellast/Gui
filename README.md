@@ -33,6 +33,8 @@ Welcome! The GUI is a virtual assistant designed to answer your questions in a f
      ```
    > **Note**: You can get your Hugging Face API token at [Hugging Face Tokens](https://huggingface.co/settings/tokens).
 
+   > **Note**: If you're using a graphical interface with `Python gui.py` you don't need the Hugging Face token; it works without it.
+
 ## How to Run
 
 
