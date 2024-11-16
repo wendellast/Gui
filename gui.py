@@ -11,9 +11,12 @@ from config.threads import (
     BotResponseThread,
     SpeakThread,
 )
+from util.data_config import extrair_dados_config
 
-Thema = "static/assets/img/gui.gif"
-Versao = "Versão Beta v2.0"
+THEME = "static/assets/img/gui.gif"
+_, _, _, _, _, VERSION = extrair_dados_config()
+
+
 
 
 class Janela(QMainWindow):
@@ -27,7 +30,7 @@ class Janela(QMainWindow):
         self.label_gif.setAlignment(Qt.AlignCenter)
         self.label_gif.move(0, 0)
         self.label_gif.resize(400, 300)
-        self.movie = QMovie(Thema)
+        self.movie = QMovie(THEME)
         self.label_gif.setMovie(self.movie)
         self.movie.start()
 
@@ -57,7 +60,7 @@ class Janela(QMainWindow):
 
         # Label para a versão
         self.label_version = QLabel(self)
-        self.label_version.setText(Versao)
+        self.label_version.setText("versão: " + str(VERSION))
         self.label_version.setAlignment(Qt.AlignCenter)
         self.label_version.move(265, 270)
         self.label_version.setStyleSheet("QLabel {font-size:14px;color:#D971B4}")

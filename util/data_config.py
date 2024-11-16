@@ -4,7 +4,7 @@ try:
     with open("data/config.json", "r", encoding="UTF-8") as file:
         config: dict = json.load(file)
 except:
-    raise "ERROr ao carregar config.json"
+    raise "ERROR ao carregar config.json"
 
 
 def extrair_dados_config(config: dict = config):
@@ -23,10 +23,11 @@ def extrair_dados_config(config: dict = config):
 
         name_gui: str = config["config"]["name"]
         country: str = config["config"]["status"]["country"]
+        version: str = config["config"]["version"]
 
         desenvolvedor_description: dict = config["config"]["developers Hublast"]
 
-        return regras, desenvolvedor_name, desenvolvedor_description, name_gui, country
+        return regras, desenvolvedor_name, desenvolvedor_description, name_gui, country, version
 
     except KeyError as e:
         print(f"Erro ao acessar a chave: {e}")
