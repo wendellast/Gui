@@ -1,19 +1,13 @@
 from datetime import datetime
 from typing import List, Optional, Tuple
 
-
 import gradio as gr
 from datasets import load_dataset
 from huggingface_hub import InferenceClient
 
-from config.prompt_gui import (
-    prompt_template_gui,
-    template_gui,
-)
-
-
-from util.token_access import load_token
+from config.prompt_gui import prompt_template_gui, template_gui
 from util.data_config import extrair_dados_config
+from util.token_access import load_token
 
 regras, desenvolvedor_name, country, name_gui, desenvolvedor_description = (
     extrair_dados_config()
@@ -26,19 +20,16 @@ except:
     raise "Erro ao carrega codigo js"
 
 
-
 token: Optional[str] = load_token()
 now: datetime = datetime.now()
 model: str = "meta-llama/Llama-3.2-3B-Instruct"
-js=js_code
+js = js_code
 
 template_gui = template_gui()
 prompt_template = prompt_template_gui(template_gui)
 
 
-client: InferenceClient = InferenceClient(
-    model=model, token=token
-)
+client: InferenceClient = InferenceClient(model=model, token=token)
 
 
 dataset = load_dataset("wendellast/GUI-Ban")
@@ -118,7 +109,7 @@ demo: gr.ChatInterface = gr.ChatInterface(
     ],
     theme="gstaff/xkcd",
     title="GUI",
-    js=js
+    js=js,
 )
 
 # Inicializar a aplicação

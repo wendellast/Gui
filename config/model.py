@@ -9,6 +9,7 @@ token = load_token()
 
 model = "meta-llama/Llama-3.2-3B-Instruct"
 
+
 class GuiChat(LLM):
     """GUI LLM wrapper usando login via token."""
 
@@ -67,7 +68,7 @@ class GuiChat(LLM):
 chatbot = GuiChat(auth_token=token)
 
 
-#TEST-BOT
+# TEST-BOT
 """
 while True:
     ask = input("Digite aqui: ")

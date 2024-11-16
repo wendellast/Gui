@@ -2,6 +2,7 @@ from gradio_client import Client
 
 #  ==========TEST API==========
 
+
 def response_gui(input_text) -> str:
     client = Client("wendellast/GUI")
     result = client.predict(

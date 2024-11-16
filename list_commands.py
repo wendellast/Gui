@@ -1,24 +1,35 @@
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QListWidget, QPushButton
+
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QIcon
+from PySide6.QtWidgets import (
+    QApplication,
+    QLabel,
+    QListWidget,
+    QMainWindow,
+    QPushButton,
+)
+
 
 class JanelaC(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        # Título da lista de comandos
+
         self.label_JG = QLabel(self)
-        self.label_JG.setText("LISTA DE COMANDOS")
+        self.label_JG.setText("COMANDOS")
         self.label_JG.setAlignment(Qt.AlignRight)
         self.label_JG.move(5, 5)
-        self.label_JG.setStyleSheet('QLabel {font-size:18px; color: #DB7399; font:bold}')
+        self.label_JG.setStyleSheet(
+            "QLabel {font-size:18px; color: #DB7399; font:bold}"
+        )
         self.label_JG.resize(195, 20)
 
         # Lista de comandos
         self.ListaC = QListWidget(self)
         self.ListaC.setGeometry(5, 30, 290, 370)
-        self.ListaC.setStyleSheet("""
+        self.ListaC.setStyleSheet(
+            """
             QListWidget::item {
                 color: #9E6778;
                 background-color: transparent;
@@ -45,15 +56,13 @@ class JanelaC(QMainWindow):
                 subcontrol-position: top;
                 subcontrol-origin: margin;
             }
-        """)
+        """
+        )
 
         # Lista de comandos disponíveis
         ls = [
-            'sara', 'historico', 'silencio', 'horas', 'aprenda', 'bateria', 'easter egg', 'relatório',
-            'cadastro', 'tira print', 'login', 'pesquisa', 'resumo', 'data', 'abrir arquivos',
-            'criar arquivo', 'criar pasta', 'música', 'remover arquivo', 'remover pasta', 'editar arquivo',
-            'renomear arquivo', 'renomear pasta', 'esvaziar lixeira', 'abrir calculadora', 'playlist',
-            'desligar', 'temperatura do sistema', 'escreva', 'quanto é'
+            "....",
+
         ]
         self.ListaC.addItems(ls)
 
@@ -61,7 +70,9 @@ class JanelaC(QMainWindow):
         self.botao_fechar = QPushButton("", self)
         self.botao_fechar.move(270, 5)
         self.botao_fechar.resize(20, 20)
-        self.botao_fechar.setStyleSheet("background-image: url(static/assets/img/closed.png); border-radius: 15px;")
+        self.botao_fechar.setStyleSheet(
+            "background-image: url(static/assets/img/closed.png); border-radius: 15px;"
+        )
         self.botao_fechar.clicked.connect(self.fechartudo)
 
         # Carregar configurações da janela
@@ -75,13 +86,13 @@ class JanelaC(QMainWindow):
         self.setMaximumSize(300, 410)
         self.setWindowOpacity(0.95)
         self.setStyleSheet("background-color: #F2B8B1")
-        self.setWindowIcon(QIcon('static/assets/img/sara_icon.png'))
+        self.setWindowIcon(QIcon("static/assets/img/sara_icon.png"))
         self.setWindowTitle("COMANDOS")
         self.show()
 
     def fechartudo(self):
         """Fechar a aplicação"""
-        print('botão fechar pressionado')
+        print("botão fechar pressionado")
         sys.exit()
 
     def mousePressEvent(self, event):
@@ -96,6 +107,7 @@ class JanelaC(QMainWindow):
             self.move(self.pos() + event.globalPos() - self.dragPos)
             self.dragPos = event.globalPos()
             event.accept()
+
 
 if __name__ == "__main__":
     aplicacao = QApplication(sys.argv)
