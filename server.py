@@ -9,7 +9,7 @@ from config.prompt_gui import prompt_template_gui, template_gui
 from util.data_config import extrair_dados_config
 from util.token_access import load_token
 
-regras, desenvolvedor_name, country, name_gui, desenvolvedor_description = (
+regras, desenvolvedor_name, country, name_gui, desenvolvedor_description, _ = (
     extrair_dados_config()
 )
 
